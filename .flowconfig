@@ -1,0 +1,13 @@
+[ignore]
+.*/node_modules/.*
+.*/lib/.*
+.*/flow-coverage/.*
+
+[include]
+
+[libs]
+flow-typed
+./flow-libs/
+
+[options]
+#all=true
