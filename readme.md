@@ -12,3 +12,21 @@
 * `npm start` - will get all files from `src` folder then remove types and copy all files to lib folder and then run it with `node`
 
 * `npm run dev` - will create watcher for `src` folder and remove types and copy all files to lib folder and then run it with `nodemon`. On each change in files in `src` folder it will restart
+
+
+## How to release
+
+You can use electron-packager for building releases \
+https://github.com/electron-userland/electron-packager
+
+example: \
+`electron-packager %app_dir% %app_dir_name% --asar=true --arch=x64 --platform=linux`
+
+where:
+   * `--asar=true` - put sources in archive 
+   * `--platform=linux` - destination platform. Can be `linux`, `win32`, `darwin`, `all` 
+
+Additional info is here:
+https://github.com/electron-userland/electron-packager/blob/master/docs/api.md
+    
+    

@@ -3,7 +3,7 @@ const {app : app, BrowserWindow : BrowserWindow} = require('electron');
 const path : path = require('path');
 const url : url = require('url');
 
-let window : BrowserWindow
+let window : BrowserWindow;
 
 function startApp() {
 
