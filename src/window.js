@@ -1,6 +1,7 @@
-// @flow
+
 $(() => {
   const cryptico = require('cryptico');
+  const aes = require('../lib/aes');
 
   let rsaKey;
   let rsaPublic;
@@ -35,13 +36,25 @@ $(() => {
     let publicK = generateKeys(text);
     console.log(publicK);
     publicKey.innerHTML = publicK;
+
+    /* for tests
+    let s = '';
+    for (let i = 1040; i < 1104; i++) {
+      s+= String.fromCharCode(i);
+    }
+    myText.value = s;
+    */
   };
 
 
   document.getElementById('encrypt_btn').onclick = () => {
+    console.log('------------- ENCRYPT --------------');
     let pKey = anotherPublicKey.value;
     let text = myText.value;
     if (pKey === '' || text === '') return;
+
+    text = aes.encryptToHex(text);
+
     let encryptedObj = cryptico.encrypt(text, pKey);
     outText.innerHTML = encryptedObj.cipher;
     console.log(text);
@@ -49,12 +62,18 @@ $(() => {
   };
 
   document.getElementById('decrypt_btn').onclick = () => {
+    console.log('------------- DECRYPT --------------');
     let text = encText.value;
     if (text === '') return;
+
     let decrypted = cryptico.decrypt(text, rsaKey);
 
-    decOutput.innerHTML = decrypted.plaintext;
-    console.log(decrypted.plaintext);
+    let txt = decrypted.plaintext;
+
+    txt = aes.decryptToUTF(txt);
+
+    decOutput.innerHTML = txt;
+    console.log(txt);
     encText.value = '';
   };
 
