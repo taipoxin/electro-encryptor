@@ -1,6 +1,6 @@
 {
   "name": "electro-encryptor",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "description": "Encrypting messaging tool on Electron + Flow",
   "scripts": {
     "flow": "flow",
