@@ -22,68 +22,85 @@
 <body>
   <div id="container" class="container-fluid">
 
-    <!-- Input private key row -->
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-        <h3 class="hash-heading">Private Key</h3>
-        <textarea rows="3" id="pass_input" class="form-control text-input" placeholder="Enter private key"></textarea>
+    <!-- register block -->
+    <div class="register">
+
+      <!-- Input private key row -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+          <h3 class="hash-heading">Private Key</h3>
+          <textarea rows="3" id="pass_input" class="form-control text-input" placeholder="Enter private key"></textarea>
+        </div>
       </div>
-    </div>
-    <button id="private_k_btn">Insert private key</button>
+      <br>
+      <button class="btn" id="private_k_btn">Insert private key</button>
 
-    <!-- public key row -->
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h3 class="hash-heading">Your public key</h3>
-        <pre id="public_key_output" class="hash-output"> </pre>
+      <!-- public key row -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h3 class="hash-heading">Your public key</h3>
+          <pre id="public_key_output" class="hash-output"> </pre>
+        </div>
       </div>
-    </div>
 
 
-
-    <!-- Another public key -->
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-        <h3 class="hash-heading">Another public key </h3>
-        <textarea rows="4" id="public_key" class="form-control text-input" placeholder="Enter friend's public key"></textarea>
+      <!-- Another public key -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+          <h3 class="hash-heading">Another public key </h3>
+          <textarea rows="4" id="public_key" class="form-control text-input" placeholder="Enter friend's public key"></textarea>
+        </div>
       </div>
-    </div>
 
-    <!-- Text area -->
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-        <h3 class="hash-heading">Text area </h3>
-        <textarea rows="3" id="text_for_encrypting" class="form-control text-input" placeholder="Enter your text"></textarea>
-      </div>
-    </div>
-
-    <button id="encrypt_btn">Encrypt text</button>
-
-    <!-- public key row -->
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h3 class="hash-heading">Encrypted</h3>
-        <pre id="encrypted_text_output" class="hash-output"> </pre>
-      </div>
     </div>
 
 
+    <!-- block to_encrypt -->
+    <!-- ------ -->
+    <div class="to_encrypt">
 
-    <!-- Text area -->
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-        <h3 class="hash-heading">Encrypted text</h3>
-        <textarea rows="4" id="text_for_decrypting" class="form-control text-input" placeholder="Enter your text"></textarea>
+
+      <!-- Text area -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+          <h3 class="hash-heading">Text area </h3>
+          <textarea rows="3" id="text_for_encrypting" class="form-control text-input" placeholder="Enter your text"></textarea>
+        </div>
       </div>
+      <br>
+      <button class="btn" id="encrypt_btn">Encrypt text</button>
+
+      <!-- public key row -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h3 class="hash-heading">Encrypted</h3>
+          <pre id="encrypted_text_output" class="hash-output"> </pre>
+        </div>
+      </div>
+
     </div>
 
-    <button id="decrypt_btn">Decrypt text</button>
 
-    <!-- Decrypted text-->
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h3 class="hash-heading">Decrypted text</h3>
-        <pre id="decrypted_text_output" class="hash-output"> </pre>
+    <!-- block to_decrypt -->
+    <!-- ------ -->
+    <div class="to_decrypt">
+      <!-- Text area -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+          <h3 class="hash-heading">Encrypted text</h3>
+          <textarea rows="3" id="text_for_decrypting" class="form-control text-input" placeholder="Enter your text"></textarea>
+        </div>
+      </div>
+
+      <br>
+      <button class="btn" id="decrypt_btn">Decrypt text</button>
+
+      <!-- Decrypted text-->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h3 class="hash-heading">Decrypted text</h3>
+          <pre id="decrypted_text_output" class="hash-output"> </pre>
+        </div>
       </div>
     </div>
 

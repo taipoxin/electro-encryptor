@@ -1,41 +1,40 @@
 
 $(() => {
-  const cryptico = require('cryptico');
-  const aes = require('../lib/aes');
+  const cryptico = require('cryptico')
+  const aes = require('../lib/aes')
 
-  let rsaKey;
-  let rsaPublic;
+  let rsaKey
+  let rsaPublic
 
   // generating
-  const PassPhraseInput = document.getElementById('pass_input');
-  const publicKey = document.getElementById('public_key_output');
+  const PassPhraseInput = document.getElementById('pass_input')
+  const publicKey = document.getElementById('public_key_output')
   // encrypting
-  const anotherPublicKey = document.getElementById('public_key');
-  const myText = document.getElementById('text_for_encrypting');
-  const outText = document.getElementById('encrypted_text_output');
+  const anotherPublicKey = document.getElementById('public_key')
+  const myText = document.getElementById('text_for_encrypting')
+  const outText = document.getElementById('encrypted_text_output')
   // decrypting
-  const encText = document.getElementById('text_for_decrypting');
-  const decOutput = document.getElementById('decrypted_text_output');
+  const encText = document.getElementById('text_for_decrypting')
+  const decOutput = document.getElementById('decrypted_text_output')
 
-
-  function generateKeys (passPhrase : string) {
+  function generateKeys (passPhrase: string) {
     // bits are now 1024
-    let bits = 1024;
-    let myRSA_key = cryptico.generateRSAKey(passPhrase, bits);
-    let myPublic_key = cryptico.publicKeyString(myRSA_key);
-    rsaKey = myRSA_key;
-    rsaPublic = myPublic_key;
-    return rsaPublic;
+    const bits = 1024
+    const myRSA_key = cryptico.generateRSAKey(passPhrase, bits)
+    const myPublic_key = cryptico.publicKeyString(myRSA_key)
+    rsaKey = myRSA_key
+    rsaPublic = myPublic_key
+    return rsaPublic
   }
 
   document.getElementById('private_k_btn').onclick = () => {
-    const text = PassPhraseInput.value;
-    console.log(text);
-    PassPhraseInput.value = '';
+    const text = PassPhraseInput.value
+    console.log(text)
+    PassPhraseInput.value = ''
 
-    let publicK = generateKeys(text);
-    console.log(publicK);
-    publicKey.innerHTML = publicK;
+    const publicK = generateKeys(text)
+    console.log(publicK)
+    publicKey.innerHTML = publicK
 
     /* for tests
     let s = '';
@@ -44,38 +43,37 @@ $(() => {
     }
     myText.value = s;
     */
-  };
-
+  }
 
   document.getElementById('encrypt_btn').onclick = () => {
-    console.log('------------- ENCRYPT --------------');
-    let pKey = anotherPublicKey.value;
-    let text = myText.value;
-    if (pKey === '' || text === '') return;
+    console.log('------------- ENCRYPT --------------')
+    const pKey = anotherPublicKey.value
+    let text = myText.value
+    if (pKey === '' || text === '') return
 
-    text = aes.encryptToHex(text);
+    text = aes.encryptToHex(text)
 
-    let encryptedObj = cryptico.encrypt(text, pKey);
-    outText.innerHTML = encryptedObj.cipher;
-    console.log(text);
-    myText.value = '';
-  };
+    const encryptedObj = cryptico.encrypt(text, pKey)
+    outText.innerHTML = encryptedObj.cipher
+    console.log(text)
+    myText.value = ''
+  }
 
   document.getElementById('decrypt_btn').onclick = () => {
-    console.log('------------- DECRYPT --------------');
-    let text = encText.value;
-    if (text === '') return;
+    console.log('------------- DECRYPT --------------')
+    const text = encText.value
+    if (text === '') return
 
-    let decrypted = cryptico.decrypt(text, rsaKey);
+    const decrypted = cryptico.decrypt(text, rsaKey)
 
-    let txt = decrypted.plaintext;
+    let txt = decrypted.plaintext
 
-    txt = aes.decryptToUTF(txt);
+    txt = aes.decryptToUTF(txt)
 
-    decOutput.innerHTML = txt;
-    console.log(txt);
-    encText.value = '';
-  };
+    decOutput.innerHTML = txt
+    console.log(txt)
+    encText.value = ''
+  }
 
   $('#text-input').focus() // focus input box
-});
+})

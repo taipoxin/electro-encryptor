@@ -2,6 +2,19 @@ html, body, .container-fluid {
   background-color: #D6D8DC;
 }
 
+.to_encrypt {
+  /* float:left; */
+  width: 50%;
+  margin-right: 55%;
+  position: absolute;
+}
+
+.to_decrypt {
+  /* float: right; */
+  position: relative;
+  margin-left: 55%;
+}
+
 .text-input {
   color: #575B5E;
   font-size: 16px;
@@ -14,6 +27,23 @@ html, body, .container-fluid {
   font-size: 16px;
   letter-spacing: 2px;
   white-space: pre-wrap;
+}
+
+.btn {
+  display: inline-block;
+  line-height: 1;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #0c5eed;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
 .hash-heading {
