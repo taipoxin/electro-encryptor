@@ -16,7 +16,7 @@ $(() => {
   // decrypting
   const encText = document.getElementById('text_for_decrypting')
   const decOutput = document.getElementById('decrypted_text_output')
-
+/*
   function generateKeys (passPhrase: string) {
     // bits are now 1024
     const bits = 1024
@@ -26,7 +26,7 @@ $(() => {
     rsaPublic = myPublic_key
     return rsaPublic
   }
-
+*/
   document.getElementById('private_k_btn').onclick = () => {
     const text = PassPhraseInput.value
     console.log(text)
@@ -36,12 +36,13 @@ $(() => {
       type: 'POST',
       url: 'http://localhost:3000/route',
       data: {name:'generateKeys', data: text},
-      // data: "name=generateKeys&text=" + text,
       success: function(data){
         console.log(data)
-        rsaKey = data.rsaKey
         rsaPublic = data.rsaPublic
         publicKey.innerHTML = rsaPublic
+        //rsaKey = cryptico.
+        rsaKey = JSON.parse(data.rsaKey)
+        console.log(rsaKey)
       }
     });
 
@@ -70,7 +71,9 @@ $(() => {
     const text = encText.value
     if (text === '') return
 
-    const decrypted = cryptico.decrypt(text, rsaKey)
+    //console.log(cryptico)
+    //console.log(text, rsaKey)
+    let decrypted = cryptico.decrypt(text, rsaKey)
 
     let txt = decrypted.plaintext
 

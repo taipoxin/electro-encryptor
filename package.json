@@ -19,19 +19,14 @@
     "flow:deps": "flow-typed install",
     "lint": "eslint .",
     "lintfix": "eslint . --fix",
-    "dev": "watch --wait=1 'flow-remove-types src/ -d lib/ --all --pretty' ./src/ & electron ./lib/app.js",
-    "start": "npm run flow:build && electron ./lib/app.js"
+    "clean": "rimraf lib",
+    "build": "npm run clean && npm run flow:build",
+    "start": "electron ./lib/app.js",
+    "dev": "npm run build && npm run start"
   },
   "devDependencies": {
-    "flow-bin": "^0.63.1",
-    "flow-coverage-report": "^0.4.0",
-    "flow-remove-types": "^1.2.3",
-    "flow-typed": "^2.4.0",
-    "nodemon": "^1.11.0",
-    "watch": "^1.0.2",
     "babel-eslint": "^10.0.1",
     "chai": "^4.2.0",
-    "documentation": "vicapow/documentation#a560a4373c301e37251f13e045811932c9c4ac01",
     "eslint": "^5.6.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-standard": "^12.0.0",
@@ -40,7 +35,12 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "flow-bin": "^0.63.1",
+    "flow-coverage-report": "^0.4.0",
+    "flow-remove-types": "^1.2.3",
+    "flow-typed": "^2.4.0",
+    "nodemon": "^1.11.0"
   },
   "dependencies": {
     "aes-js": "^3.1.1",
