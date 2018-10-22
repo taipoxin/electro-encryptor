@@ -32,17 +32,23 @@ $(() => {
     console.log(text)
     PassPhraseInput.value = ''
 
-    const publicK = generateKeys(text)
-    console.log(publicK)
-    publicKey.innerHTML = publicK
+    $.ajax({
+      type: 'POST',
+      url: 'http://localhost:3000/route',
+      data: {name:'generateKeys', data: text},
+      // data: "name=generateKeys&text=" + text,
+      success: function(data){
+        console.log(data)
+        rsaKey = data.rsaKey
+        rsaPublic = data.rsaPublic
+        publicKey.innerHTML = rsaPublic
+      }
+    });
 
-    /* for tests
-    let s = '';
-    for (let i = 1040; i < 1104; i++) {
-      s+= String.fromCharCode(i);
-    }
-    myText.value = s;
-    */
+    //const publicK = generateKeys(text)
+    
+
+    
   }
 
   document.getElementById('encrypt_btn').onclick = () => {
