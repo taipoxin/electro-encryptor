@@ -1,30 +1,24 @@
 /* @flow */
 
-const numCPUs = require('os').cpus().length;
-const cluster = require('cluster');
+const numCPUs = require('os').cpus().length
+const cluster = require('cluster')
 
-
-function forkWorkers(num) {
-  
+function forkWorkers (num) {
   for (let i = 0; i < num; i++) {
-    cluster.fork();
+    cluster.fork()
   }
   cluster.on('exit', (worker, code, signal) => {
-    console.log(`worker ${worker.process.pid} died`);
-  });
+    console.log(`worker ${worker.process.pid} died`)
+  })
 }
-
 
 if (cluster.isMaster) {
-  console.log(`Master ${process.pid} is running`);
+  console.log(`Master ${process.pid} is running`)
 
   // Fork numCPUs - 1 workers
-  forkWorkers(numCPUs-1)
+  forkWorkers(numCPUs > 1 ? numCPUs - 1 : 1)
   require('./view')
-} 
-else {
+} else {
   require('./server')
-  console.log(`Worker ${process.pid} started`);
+  console.log(`Worker ${process.pid} started`)
 }
-
-

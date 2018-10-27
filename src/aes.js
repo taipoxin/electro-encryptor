@@ -11,7 +11,6 @@ function encryptToHex (str) {
 
 // return UTF string
 function decryptToUTF (str) {
-  console.log('test')
   const key_128 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
   const aesCtr = new aesjs.ModeOfOperation.ctr(key_128)
   const bytes = aesjs.utils.hex.toBytes(str)

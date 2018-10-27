@@ -9,5 +9,3 @@
 flow-typed
 ./flow-libs/
 
-[options]
-#all=true

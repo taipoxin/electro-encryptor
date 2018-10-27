@@ -17,6 +17,7 @@
     "flow:build": "flow-remove-types ./src -d ./lib --all --pretty",
     "flow:check": "flow check ./src/",
     "flow:deps": "flow-typed install",
+    "flow:typed": "flow-typed install",
     "lint": "eslint .",
     "lintfix": "eslint . --fix",
     "clean": "rimraf lib",

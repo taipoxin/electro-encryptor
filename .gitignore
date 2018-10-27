@@ -6,3 +6,4 @@ flow-coverage
 package-lock.json
 .idea
 .env
+.vscode
