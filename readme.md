@@ -1,6 +1,6 @@
 ## ElectroEncryptor - Encrypting messaging tool on Electron + Flow
 
-* version 0.1.0
+* version 0.7.0
 * now works only with latin symbols
 * without Babel (using `flow-remove-types` and `cryptico`)
 
